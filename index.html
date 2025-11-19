@@ -5,6 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Северная Пасека — Натуральный мёд от среднерусских пчёл</title>
+    <meta name="description"
+        content="Натуральный мёд от среднерусских тёмных лесных пчёл. Экологически чистая продукция с пасеки в Псковской области.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -33,6 +35,7 @@
             color: var(--text);
             line-height: 1.65;
             -webkit-font-smoothing: antialiased;
+            scroll-behavior: smooth;
         }
 
         header {
@@ -207,6 +210,8 @@
             box-shadow: var(--shadow);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid #f0f0f0;
+            display: flex;
+            flex-direction: column;
         }
 
         .product-card:hover {
@@ -237,6 +242,9 @@
 
         .product-content {
             padding: 24px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .product-title {
@@ -251,12 +259,14 @@
             color: var(--light-brown);
             margin-bottom: 18px;
             line-height: 1.6;
+            flex-grow: 1;
         }
 
         .product-price {
             font-weight: 700;
             color: var(--accent-dark);
             font-size: 1.3rem;
+            margin-bottom: 15px;
         }
 
         .contact-form {
@@ -308,6 +318,7 @@
             z-index: 100;
             align-items: center;
             justify-content: center;
+            padding: 20px;
         }
 
         .modal-content {
@@ -315,9 +326,11 @@
             border-radius: 12px;
             padding: 32px;
             max-width: 600px;
-            width: 90%;
+            width: 100%;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
             position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
         .close-modal {
@@ -328,6 +341,7 @@
             cursor: pointer;
             color: var(--brown);
             font-weight: bold;
+            z-index: 101;
         }
 
         .modal-title {
@@ -397,6 +411,143 @@
             margin: 40px 0;
         }
 
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 80px;
+            z-index: 19;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--brown);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .testimonial {
+            background: var(--card);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--accent);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--brown);
+        }
+
+        .loading-spinner {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(193, 154, 46, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--accent);
+            animation: spin 1s ease-in-out infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .error-message {
+            display: none;
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--accent);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--accent-dark);
+            transform: translateY(-3px);
+        }
+
         @media (max-width: 768px) {
             .card {
                 padding: 28px 24px;
@@ -418,6 +569,42 @@
             .hero-section {
                 min-height: 400px;
             }
+
+            .nav-container {
+                top: 70px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 15px;
+                justify-content: center;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 15px 40px;
+            }
+
+            .card {
+                padding: 20px 18px;
+                margin: 20px 0;
+            }
+
+            .hero-section {
+                min-height: 350px;
+            }
+
+            .hero-overlay {
+                padding: 30px 15px;
+            }
         }
     </style>
 </head>
@@ -428,6 +615,16 @@
         Северная Пасека — Мёд от среднерусских пчёл
     </header>
 
+    <div class="nav-container">
+        <ul class="nav-links">
+            <li><a href="#about">О пасеке</a></li>
+            <li><a href="#products">Продукция</a></li>
+            <li><a href="#benefits">Преимущества</a></li>
+            <li><a href="#testimonials">Отзывы</a></li>
+            <li><a href="#contact">Контакты</a></li>
+        </ul>
+    </div>
+
     <section class="hero-section">
         <!-- Основное изображение -->
         <img src="pskov.jpeg" alt="Пасека и северная тёмная пчела" class="hero-image" id="main-image" />
@@ -436,13 +633,14 @@
             <h1 class="hero-title">Натуральный мёд от северных пчёл</h1>
             <p class="hero-subtitle">Среднерусская тёмная лесная пчела — уникальная порода, сохранившаяся в чистоте и
                 дающая самый качественный мёд в суровых северных условиях</p>
+            <a href="#products" class="btn" style="margin-top: 25px;">Посмотреть продукцию</a>
         </div>
     </section>
 
     <div class="container">
 
         <!-- CARD 1 -->
-        <div class="card">
+        <div class="card" id="about">
             <h2>О нашей пасеке</h2>
 
             <p class="lead">
@@ -464,7 +662,7 @@
         <div class="section-divider"></div>
 
         <!-- CARD 2 -->
-        <div class="card">
+        <div class="card" id="benefits">
             <h3>Почему наш мёд такой особенный</h3>
 
             <ul class="lead">
@@ -495,8 +693,30 @@
             <p class="meta">Для тех, кто выбирает не массовый продукт, а настоящую природную ценность.</p>
         </div>
 
-        <!-- CARD 3 - Products -->
-        <div class="card">
+        <!-- CARD 3 - Testimonials -->
+        <div class="card" id="testimonials">
+            <h3>Отзывы наших покупателей</h3>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p class="testimonial-text">"Покупаю мёд у Северной Пасеки уже третий год. Качество неизменно
+                        высокое, вкус насыщенный и натуральный. Рекомендую всем, кто ценит настоящий мёд!"</p>
+                    <p class="testimonial-author">— Марина, Санкт-Петербург</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"После того как попробовал этот мёд, другие уже не покупаю. Чувствуется,
+                        что продукт действительно натуральный, без примесей и химии."</p>
+                    <p class="testimonial-author">— Сергей, Москва</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"Заказывали мёд для всей семьи. Дети в восторге! А я довольна тем, что
+                        это действительно полезный и качественный продукт. Спасибо за вашу работу!"</p>
+                    <p class="testimonial-author">— Ольга, Псков</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 4 - Products -->
+        <div class="card" id="products">
             <h3>Наша продукция</h3>
             <p class="lead">Мы предлагаем только натуральные продукты пчеловодства высочайшего качества.</p>
 
@@ -510,130 +730,297 @@
                         <p class="product-description">Собран с лугового разнотравья, имеет нежный аромат и светлый
                             оттенок. Идеально подходит для ежедневного употребления.</p>
                         <div class="product-price">1290 ₽/кг</div>
+                        <button class="btn" onclick="showOrderModal('Цветочный мёд')">Заказать</button>
                     </div>
                 </div>
 
-
-                <button class="btn" onclick="showOrderModal()">Сделать заказ</button>
-            </div>
-
-            <!-- CARD 4 - Contact -->
-            <div class="card">
-                <h3>Свяжитесь с нами</h3>
-                <p class="lead">Есть вопросы о нашей продукции или хотите сделать заказ? Напишите нам!</p>
-
-                <form class="contact-form" id="contact-form">
-                    <div class="form-group">
-                        <label for="name">Ваше имя</label>
-                        <input type="text" id="name" class="form-control" required>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="forest-honey.png" alt="Лесной мёд">
                     </div>
-
-                    <div class="form-group">
-                        <label for="email">Ваш email</label>
-                        <input type="email" id="email" class="form-control" required>
+                    <div class="product-content">
+                        <h4 class="product-title">Лесной мёд</h4>
+                        <p class="product-description">Собран в лесных массивах, имеет насыщенный вкус и тёмный цвет.
+                            Богат микроэлементами и обладает выраженными целебными свойствами.</p>
+                        <div class="product-price">1490 ₽/кг</div>
+                        <button class="btn" onclick="showOrderModal('Лесной мёд')">Заказать</button>
                     </div>
+                </div>
 
-                    <div class="form-group">
-                        <label for="message">Сообщение</label>
-                        <textarea id="message" class="form-control" required></textarea>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="propolis.png" alt="Прополис">
                     </div>
-
-                    <button type="submit" class="btn">Отправить сообщение</button>
-                </form>
-            </div>
-
-        </div>
-
-        <!-- Modal -->
-        <div class="modal" id="info-modal">
-            <div class="modal-content">
-                <span class="close-modal" onclick="closeModal()">&times;</span>
-                <h3 class="modal-title">Почему наш мёд особенный</h3>
-                <p>Наш мёд собирается в экологически чистых районах, где нет промышленных предприятий и
-                    сельскохозяйственных
-                    химикатов. Среднерусская тёмная лесная пчела, работающая на нашей пасеке, производит мёд с
-                    уникальными
-                    свойствами:</p>
-                <ul style="margin: 15px 0 15px 20px;">
-                    <li>Высокая концентрация полезных веществ</li>
-                    <li>Насыщенный вкус и аромат</li>
-                    <li>Медленная кристаллизация</li>
-                    <li>Длительный срок хранения</li>
-                </ul>
-                <p>Мы сохраняем чистоту породы и экологичность пасеки, что делает наш мёд по-настоящему особенным.</p>
-                <button class="btn" onclick="closeModal()" style="margin-top: 20px;">Понятно</button>
+                    <div class="product-content">
+                        <h4 class="product-title">Прополис</h4>
+                        <p class="product-description">Натуральный прополис, собранный нашими пчёлами. Обладает мощными
+                            антибактериальными и противовоспалительными свойствами.</p>
+                        <div class="product-price">890 ₽/100г</div>
+                        <button class="btn" onclick="showOrderModal('Прополис')">Заказать</button>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <footer>
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Наша пасека</h3>
-                    <p>Северная тёмная лесная пчела</p>
-                    <p>Экологически чистое производство</p>
-                    <p>Натуральные продукты</p>
+        <!-- CARD 5 - Contact -->
+        <div class="card" id="contact">
+            <h3>Свяжитесь с нами</h3>
+            <p class="lead">Есть вопросы о нашей продукции или хотите сделать заказ? Напишите нам!</p>
+
+            <form class="contact-form" id="contact-form">
+                <div class="form-group">
+                    <label for="name">Ваше имя</label>
+                    <input type="text" id="name" class="form-control" required>
                 </div>
 
-                <div class="footer-section">
-                    <h3>Контакты</h3>
-                    <p>+7 (965) 787-87-81</p>
-                    <p>info@beefarm.ru</p>
-                    <p>Сбежский национальный заповедник. Псковская обл. Северный регион, Россия</p>
+                <div class="form-group">
+                    <label for="email">Ваш email</label>
+                    <input type="email" id="email" class="form-control" required>
                 </div>
 
-                <div class="footer-section">
-                    <h3>Продукция</h3>
-                    <a href="#">Цветочный мёд</a>
-                    <a href="#">Лесной мёд</a>
-                    <a href="#">Забрус</a>
-                    <a href="#">Прополис</a>
+                <div class="form-group">
+                    <label for="phone">Ваш телефон</label>
+                    <input type="tel" id="phone" class="form-control">
                 </div>
+
+                <div class="form-group">
+                    <label for="product">Интересующий продукт</label>
+                    <select id="product" class="form-control">
+                        <option value="">Выберите продукт</option>
+                        <option value="Цветочный мёд">Цветочный мёд</option>
+                        <option value="Лесной мёд">Лесной мёд</option>
+                        <option value="Прополис">Прополис</option>
+                        <option value="Забрус">Забрус</option>
+                        <option value="Другое">Другое</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Сообщение</label>
+                    <textarea id="message" class="form-control" required></textarea>
+                </div>
+
+                <button type="submit" class="btn">Отправить сообщение</button>
+
+                <div class="loading-spinner" id="form-spinner"></div>
+                <div class="success-message" id="form-success">
+                    Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.
+                </div>
+                <div class="error-message" id="form-error">
+                    Произошла ошибка при отправке сообщения. Пожалуйста, попробуйте еще раз или свяжитесь с нами по
+                    телефону.
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="info-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h3 class="modal-title">Почему наш мёд особенный</h3>
+            <p>Наш мёд собирается в экологически чистых районах, где нет промышленных предприятий и
+                сельскохозяйственных
+                химикатов. Среднерусская тёмная лесная пчела, работающая на нашей пасеке, производит мёд с
+                уникальными
+                свойствами:</p>
+            <ul style="margin: 15px 0 15px 20px;">
+                <li>Высокая концентрация полезных веществ</li>
+                <li>Насыщенный вкус и аромат</li>
+                <li>Медленная кристаллизация</li>
+                <li>Длительный срок хранения</li>
+            </ul>
+            <p>Мы сохраняем чистоту породы и экологичность пасеки, что делает наш мёд по-настоящему особенным.</p>
+            <button class="btn" onclick="closeModal()" style="margin-top: 20px;">Понятно</button>
+        </div>
+    </div>
+
+    <!-- Order Modal -->
+    <div class="modal" id="order-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeOrderModal()">&times;</span>
+            <h3 class="modal-title">Заказ продукции</h3>
+            <p id="order-product-text">Вы выбрали: <span id="selected-product"></span></p>
+            <form id="order-form">
+                <div class="form-group">
+                    <label for="order-name">Ваше имя</label>
+                    <input type="text" id="order-name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="order-phone">Ваш телефон</label>
+                    <input type="tel" id="order-phone" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="order-quantity">Количество</label>
+                    <input type="number" id="order-quantity" class="form-control" min="1" value="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="order-comment">Комментарий к заказу</label>
+                    <textarea id="order-comment" class="form-control"></textarea>
+                </div>
+                <button type="submit" class="btn">Отправить заказ</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Наша пасека</h3>
+                <p>Северная тёмная лесная пчела</p>
+                <p>Экологически чистое производство</p>
+                <p>Натуральные продукты</p>
             </div>
 
-            <div class="copyright">
-                &copy; 2025 Северная Пасека. Все права защищены.
+            <div class="footer-section">
+                <h3>Контакты</h3>
+                <p>+7 (965) 787-87-81</p>
+                <p>info@beefarm.ru</p>
+                <p>Сбежский национальный заповедник. Псковская обл. Северный регион, Россия</p>
             </div>
-        </footer>
 
-        <script>
-            // Проверяем, загрузилось ли изображение
-            document.addEventListener('DOMContentLoaded', function () {
-                const mainImage = document.getElementById('main-image');
-                const heroOverlay = document.querySelector('.hero-overlay');
+            <div class="footer-section">
+                <h3>Продукция</h3>
+                <a href="#products">Цветочный мёд</a>
+                <a href="#products">Лесной мёд</a>
+                <a href="#products">Забрус</a>
+                <a href="#products">Прополис</a>
+            </div>
+        </div>
 
-                mainImage.addEventListener('error', function () {
-                    // Если изображение не загрузилось, меняем фон
-                    heroOverlay.style.background = 'linear-gradient(45deg, #c19a2e, #d4b15a)';
+        <div class="copyright">
+            &copy; 2025 Северная Пасека. Все права защищены.
+        </div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+        ↑
+    </div>
+
+    <script>
+        // Проверяем, загрузилось ли изображение
+        document.addEventListener('DOMContentLoaded', function () {
+            const mainImage = document.getElementById('main-image');
+            const heroOverlay = document.querySelector('.hero-overlay');
+
+            mainImage.addEventListener('error', function () {
+                // Если изображение не загрузилось, меняем фон
+                heroOverlay.style.background = 'linear-gradient(45deg, #c19a2e, #d4b15a)';
+            });
+
+            // Плавная прокрутка для навигационных ссылок
+            document.querySelectorAll('.nav-links a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const navHeight = document.querySelector('.nav-container').offsetHeight;
+                        const offsetTop = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - navHeight;
+
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
                 });
             });
 
-            function showHoneyInfo() {
-                document.getElementById('info-modal').style.display = 'flex';
-            }
+            // Кнопка "Наверх"
+            const backToTopButton = document.getElementById('back-to-top');
 
-            function closeModal() {
-                document.getElementById('info-modal').style.display = 'none';
-            }
-
-            function showOrderModal() {
-                alert('Для заказа свяжитесь с нами по телефону или через форму обратной связи. Мы перезвоним вам в ближайшее время!');
-            }
-
-            // Close modal when clicking outside of it
-            window.onclick = function (event) {
-                const modal = document.getElementById('info-modal');
-                if (event.target === modal) {
-                    closeModal();
+            window.addEventListener('scroll', function () {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
                 }
-            }
+            });
 
-            // Form submission
+            backToTopButton.addEventListener('click', function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Обработка формы обратной связи
             document.getElementById('contact-form').addEventListener('submit', function (e) {
                 e.preventDefault();
-                alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
-                this.reset();
+
+                const spinner = document.getElementById('form-spinner');
+                const successMessage = document.getElementById('form-success');
+                const errorMessage = document.getElementById('form-error');
+
+                // Показать индикатор загрузки
+                spinner.style.display = 'block';
+                successMessage.style.display = 'none';
+                errorMessage.style.display = 'none';
+
+                // Имитация отправки формы
+                setTimeout(function () {
+                    spinner.style.display = 'none';
+
+                    // В реальном приложении здесь был бы код отправки данных на сервер
+                    // Для демонстрации просто показываем сообщение об успехе
+                    successMessage.style.display = 'block';
+
+                    // Очистка формы
+                    document.getElementById('contact-form').reset();
+
+                    // Скрыть сообщение через 5 секунд
+                    setTimeout(function () {
+                        successMessage.style.display = 'none';
+                    }, 5000);
+                }, 1500);
             });
-        </script>
+
+            // Обработка формы заказа
+            document.getElementById('order-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // В реальном приложении здесь был бы код отправки заказа
+                alert('Спасибо за ваш заказ! Мы свяжемся с вами в ближайшее время для подтверждения.');
+                closeOrderModal();
+            });
+        });
+
+        function showHoneyInfo() {
+            document.getElementById('info-modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('info-modal').style.display = 'none';
+        }
+
+        function showOrderModal(productName) {
+            if (productName) {
+                document.getElementById('selected-product').textContent = productName;
+            }
+            document.getElementById('order-modal').style.display = 'flex';
+        }
+
+        function closeOrderModal() {
+            document.getElementById('order-modal').style.display = 'none';
+            document.getElementById('order-form').reset();
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function (event) {
+            const modal = document.getElementById('info-modal');
+            if (event.target === modal) {
+                closeModal();
+            }
+
+            const orderModal = document.getElementById('order-modal');
+            if (event.target === orderModal) {
+                closeOrderModal();
+            }
+        }
+    </script>
 
 </body>
 
