@@ -430,8 +430,7 @@
 
     <section class="hero-section">
         <!-- Основное изображение -->
-        <img src="russian-forest-honey.png"
-            alt="Пасека и северная тёмная пчела" class="hero-image" id="main-image" />
+        <img src="wildflower-honey.png" alt="Пасека и северная тёмная пчела" class="hero-image" id="main-image" />
 
         <div class="hero-overlay">
             <h1 class="hero-title">Натуральный мёд от северных пчёл</h1>
@@ -493,8 +492,7 @@
             <div class="product-grid">
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="wildflower-honey.png"
-                            alt="Цветочный мёд">
+                        <img src="wildflower-honey.png" alt="Цветочный мёд">
                     </div>
                     <div class="product-content">
                         <h4 class="product-title">Цветочный мёд</h4>
@@ -504,152 +502,127 @@
                     </div>
                 </div>
 
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="northern-honey.png"
-                            alt="Лесной мёд">
-                    </div>
-                    <div class="product-content">
-                        <h4 class="product-title">Лесной мёд</h4>
-                        <p class="product-description">Тёмный, насыщенный мёд с хвойных и лиственных лесов. Обладает
-                            выраженным вкусом и целебными свойствами.</p>
-                        <div class="product-price">1490 ₽/кг</div>
-                    </div>
-                </div>
 
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="image-placeholder">
-                            Изображение забруса<br>(замените на реальное фото)
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <h4 class="product-title">Забрус</h4>
-                        <p class="product-description">Восковые крышечки, срезаемые при откачке мёда. Ценный продукт для
-                            здоровья полости рта и иммунитета.</p>
-                        <div class="product-price">1200 ₽/кг</div>
-                    </div>
-                </div>
+                <button class="btn" onclick="showOrderModal()">Сделать заказ</button>
             </div>
 
-            <button class="btn" onclick="showOrderModal()">Сделать заказ</button>
-        </div>
+            <!-- CARD 4 - Contact -->
+            <div class="card">
+                <h3>Свяжитесь с нами</h3>
+                <p class="lead">Есть вопросы о нашей продукции или хотите сделать заказ? Напишите нам!</p>
 
-        <!-- CARD 4 - Contact -->
-        <div class="card">
-            <h3>Свяжитесь с нами</h3>
-            <p class="lead">Есть вопросы о нашей продукции или хотите сделать заказ? Напишите нам!</p>
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Ваше имя</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
 
-            <form class="contact-form" id="contact-form">
-                <div class="form-group">
-                    <label for="name">Ваше имя</label>
-                    <input type="text" id="name" class="form-control" required>
-                </div>
+                    <div class="form-group">
+                        <label for="email">Ваш email</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
 
-                <div class="form-group">
-                    <label for="email">Ваш email</label>
-                    <input type="email" id="email" class="form-control" required>
-                </div>
+                    <div class="form-group">
+                        <label for="message">Сообщение</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
 
-                <div class="form-group">
-                    <label for="message">Сообщение</label>
-                    <textarea id="message" class="form-control" required></textarea>
-                </div>
-
-                <button type="submit" class="btn">Отправить сообщение</button>
-            </form>
-        </div>
-
-    </div>
-
-    <!-- Modal -->
-    <div class="modal" id="info-modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
-            <h3 class="modal-title">Почему наш мёд особенный</h3>
-            <p>Наш мёд собирается в экологически чистых районах, где нет промышленных предприятий и сельскохозяйственных
-                химикатов. Среднерусская тёмная лесная пчела, работающая на нашей пасеке, производит мёд с уникальными
-                свойствами:</p>
-            <ul style="margin: 15px 0 15px 20px;">
-                <li>Высокая концентрация полезных веществ</li>
-                <li>Насыщенный вкус и аромат</li>
-                <li>Медленная кристаллизация</li>
-                <li>Длительный срок хранения</li>
-            </ul>
-            <p>Мы сохраняем чистоту породы и экологичность пасеки, что делает наш мёд по-настоящему особенным.</p>
-            <button class="btn" onclick="closeModal()" style="margin-top: 20px;">Понятно</button>
-        </div>
-    </div>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Наша пасека</h3>
-                <p>Северная тёмная лесная пчела</p>
-                <p>Экологически чистое производство</p>
-                <p>Натуральные продукты</p>
+                    <button type="submit" class="btn">Отправить сообщение</button>
+                </form>
             </div>
 
-            <div class="footer-section">
-                <h3>Контакты</h3>
-                <p>+7 (965) 787-87-81</p>
-                <p>info@beefarm.ru</p>
-                <p>Сбежский национальный заповедник. Псковская обл. Северный регион, Россия</p>
-            </div>
+        </div>
 
-            <div class="footer-section">
-                <h3>Продукция</h3>
-                <a href="#">Цветочный мёд</a>
-                <a href="#">Лесной мёд</a>
-                <a href="#">Забрус</a>
-                <a href="#">Прополис</a>
+        <!-- Modal -->
+        <div class="modal" id="info-modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal()">&times;</span>
+                <h3 class="modal-title">Почему наш мёд особенный</h3>
+                <p>Наш мёд собирается в экологически чистых районах, где нет промышленных предприятий и
+                    сельскохозяйственных
+                    химикатов. Среднерусская тёмная лесная пчела, работающая на нашей пасеке, производит мёд с
+                    уникальными
+                    свойствами:</p>
+                <ul style="margin: 15px 0 15px 20px;">
+                    <li>Высокая концентрация полезных веществ</li>
+                    <li>Насыщенный вкус и аромат</li>
+                    <li>Медленная кристаллизация</li>
+                    <li>Длительный срок хранения</li>
+                </ul>
+                <p>Мы сохраняем чистоту породы и экологичность пасеки, что делает наш мёд по-настоящему особенным.</p>
+                <button class="btn" onclick="closeModal()" style="margin-top: 20px;">Понятно</button>
             </div>
         </div>
 
-        <div class="copyright">
-            &copy; 2025 Северная Пасека. Все права защищены.
-        </div>
-    </footer>
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Наша пасека</h3>
+                    <p>Северная тёмная лесная пчела</p>
+                    <p>Экологически чистое производство</p>
+                    <p>Натуральные продукты</p>
+                </div>
 
-    <script>
-        // Проверяем, загрузилось ли изображение
-        document.addEventListener('DOMContentLoaded', function () {
-            const mainImage = document.getElementById('main-image');
-            const heroOverlay = document.querySelector('.hero-overlay');
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p>+7 (965) 787-87-81</p>
+                    <p>info@beefarm.ru</p>
+                    <p>Сбежский национальный заповедник. Псковская обл. Северный регион, Россия</p>
+                </div>
 
-            mainImage.addEventListener('error', function () {
-                // Если изображение не загрузилось, меняем фон
-                heroOverlay.style.background = 'linear-gradient(45deg, #c19a2e, #d4b15a)';
+                <div class="footer-section">
+                    <h3>Продукция</h3>
+                    <a href="#">Цветочный мёд</a>
+                    <a href="#">Лесной мёд</a>
+                    <a href="#">Забрус</a>
+                    <a href="#">Прополис</a>
+                </div>
+            </div>
+
+            <div class="copyright">
+                &copy; 2025 Северная Пасека. Все права защищены.
+            </div>
+        </footer>
+
+        <script>
+            // Проверяем, загрузилось ли изображение
+            document.addEventListener('DOMContentLoaded', function () {
+                const mainImage = document.getElementById('main-image');
+                const heroOverlay = document.querySelector('.hero-overlay');
+
+                mainImage.addEventListener('error', function () {
+                    // Если изображение не загрузилось, меняем фон
+                    heroOverlay.style.background = 'linear-gradient(45deg, #c19a2e, #d4b15a)';
+                });
             });
-        });
 
-        function showHoneyInfo() {
-            document.getElementById('info-modal').style.display = 'flex';
-        }
-
-        function closeModal() {
-            document.getElementById('info-modal').style.display = 'none';
-        }
-
-        function showOrderModal() {
-            alert('Для заказа свяжитесь с нами по телефону или через форму обратной связи. Мы перезвоним вам в ближайшее время!');
-        }
-
-        // Close modal when clicking outside of it
-        window.onclick = function (event) {
-            const modal = document.getElementById('info-modal');
-            if (event.target === modal) {
-                closeModal();
+            function showHoneyInfo() {
+                document.getElementById('info-modal').style.display = 'flex';
             }
-        }
 
-        // Form submission
-        document.getElementById('contact-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
-            this.reset();
-        });
-    </script>
+            function closeModal() {
+                document.getElementById('info-modal').style.display = 'none';
+            }
+
+            function showOrderModal() {
+                alert('Для заказа свяжитесь с нами по телефону или через форму обратной связи. Мы перезвоним вам в ближайшее время!');
+            }
+
+            // Close modal when clicking outside of it
+            window.onclick = function (event) {
+                const modal = document.getElementById('info-modal');
+                if (event.target === modal) {
+                    closeModal();
+                }
+            }
+
+            // Form submission
+            document.getElementById('contact-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+                alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
+                this.reset();
+            });
+        </script>
 
 </body>
 
