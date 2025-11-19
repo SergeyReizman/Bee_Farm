@@ -13,12 +13,13 @@
             --accent-dark: #d4a212;
             --card: #ffffff;
             --text: #2a2a2a;
+            --brown: #3b2b00;
         }
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body {
@@ -26,82 +27,88 @@
             background: var(--bg);
             color: var(--text);
             -webkit-font-smoothing: antialiased;
-            line-height: 1.6;
+            line-height: 1.65;
         }
 
         header {
             background: linear-gradient(90deg, var(--accent), #ffdf74);
-            padding: 26px 16px;
+            padding: 30px 18px;
             text-align: center;
-            font-size: 1.8rem;
+            font-size: clamp(1.4rem, 4vw, 1.9rem);
             font-weight: 800;
-            letter-spacing: 0.3px;
-            color: #3b2b00;
-            box-shadow: 0 4px 22px rgba(0, 0, 0, 0.08);
+            color: var(--brown);
+            letter-spacing: 0.4px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 20;
         }
 
         .hero-image {
             width: 100%;
-            max-height: 430px;
+            max-height: 420px;
             object-fit: cover;
-            display: block;
-            border-bottom: 5px solid var(--accent);
-            filter: saturate(1.05) contrast(1.02);
+            border-bottom: 4px solid var(--accent);
+            filter: saturate(1.06) contrast(1.05);
         }
 
         .container {
-            padding: 28px;
             max-width: 960px;
             margin: 0 auto;
+            padding: 28px 20px 40px;
         }
 
         .card {
             background: var(--card);
-            padding: 28px 26px;
-            margin: 22px 0;
-            border-radius: 14px;
-            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            padding: 30px 28px;
+            border-radius: 16px;
+            margin: 24px 0;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+            transition: 0.28s ease;
+            border: 1px solid #f5e1a8;
         }
 
         .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 34px rgba(0, 0, 0, 0.08);
         }
 
         h2,
         h3 {
-            margin-bottom: 14px;
+            color: var(--brown);
             font-weight: 800;
-            color: #3a2f00;
+            margin-bottom: 14px;
         }
 
         .lead {
-            font-size: 1.05rem;
-            margin-bottom: 14px;
+            font-size: 1.06rem;
+            margin-bottom: 16px;
         }
 
         ul.lead {
-            padding-left: 20px;
+            padding-left: 22px;
+        }
+
+        ul.lead li {
+            margin-bottom: 10px;
         }
 
         .btn {
             display: inline-block;
-            padding: 12px 20px;
-            margin-top: 10px;
+            padding: 13px 22px;
             background: var(--accent);
-            border-radius: 10px;
-            text-decoration: none;
             color: #221b00;
+            text-decoration: none;
+            border-radius: 12px;
             font-weight: 700;
-            transition: 0.18s ease;
-            box-shadow: 0 7px 15px rgba(244, 196, 48, 0.28);
+            box-shadow: 0 8px 18px rgba(244, 196, 48, 0.26);
+            transition: 0.22s;
         }
 
         .btn:hover {
             background: var(--accent-dark);
             transform: translateY(-2px);
-            box-shadow: 0 10px 22px rgba(212, 162, 18, 0.25);
+            box-shadow: 0 12px 24px rgba(212, 162, 18, 0.23);
         }
 
         .btn:active {
@@ -109,23 +116,18 @@
         }
 
         .meta {
-            margin-top: 14px;
-            color: #7b7b7b;
-            font-size: 0.9rem;
+            margin-top: 16px;
+            font-size: 0.92rem;
+            color: #7d7d7d;
         }
 
         @media (max-width: 600px) {
-            header {
-                font-size: 1.3rem;
-                padding: 18px 10px;
-            }
-
             .card {
-                padding: 20px 18px;
+                padding: 22px 20px;
             }
 
             .btn {
-                padding: 10px 16px;
+                padding: 11px 18px;
             }
         }
     </style>
@@ -137,11 +139,12 @@
         🌲🐝 Мёд, рожденный севером. Мёд, достойный России. 🐝🌲
     </header>
 
-    <!-- ГЛАВНОЕ ИЗОБРАЖЕНИЕ -->
+    <!-- HERO IMAGE -->
     <img src="your-image.png" alt="Пасека и северная тёмная пчела" class="hero-image" />
 
     <div class="container">
 
+        <!-- CARD 1 -->
         <div class="card">
             <h2>О нашей пасеке</h2>
 
@@ -153,7 +156,7 @@
             </p>
 
             <p class="lead">
-                И именно они дают самый качественный мёд, который только может родиться на российских просторах.
+                Именно они дают самый качественный мёд, который только может родиться на российских просторах.
             </p>
 
             <a href="#" class="btn" onclick="showHoneyInfo()">Узнать, почему наш мёд особенный</a>
@@ -161,25 +164,23 @@
             <p class="meta">💛 Натурально • Без ГМО • Без химии</p>
         </div>
 
+        <!-- CARD 2 -->
         <div class="card">
             <h3>Почему наш мёд такой особенный</h3>
 
             <ul class="lead">
-                <li><strong>Северная порода пчёл</strong> — благодаря суровому климату тёмная лесная пчела собирает
-                    более концентрированный и полезный мёд.</li>
-                <li><strong>Разнотравье дикой природы</strong> — пчёлы летают на настоящие природные луга, лесные опушки
-                    и поляны, а не на плантации.</li>
-                <li><strong>Полная натуральность</strong> — без химии, без ГМО, без стимуляторов. Только природа.</li>
-                <li><strong>Истинный вкус русского мёда</strong> — густой, ароматный, насыщенный, созданный северными
-                    землями.</li>
+                <li><strong>Северная порода пчёл</strong> — климат делает мёд более концентрированным и полезным.</li>
+                <li><strong>Дикое разнотравье</strong> — наши пчёлы работают на природных лугах и лесных опушках.</li>
+                <li><strong>Натуральность</strong> — без химии, без ГМО, без стимуляторов.</li>
+                <li><strong>Истинный вкус русского мёда</strong> — густой, насыщенный и честный.</li>
             </ul>
 
             <p class="lead">
-                <em>✨ Это мёд, который невозможно подделать. Его может создать только одна порода —
-                    среднерусская тёмная лесная пчела.</em>
+                <em>✨ Такой мёд невозможно подделать. Его создаёт только одна порода — среднерусская тёмная лесная
+                    пчела.</em>
             </p>
 
-            <p class="meta">📌 Для тех, кто выбирает не массовый продукт, а подлинную природную ценность.</p>
+            <p class="meta">📌 Для тех, кто выбирает не массовый продукт, а настоящую природную ценность.</p>
         </div>
 
     </div>
