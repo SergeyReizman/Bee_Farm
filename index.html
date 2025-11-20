@@ -4,12 +4,35 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Северная Пасека — Натуральный мёд от среднерусских пчёл</title>
+    <title>Северная Пасека — Натуральный мёд от среднерусских пчёл в Псковской области</title>
     <meta name="description"
-        content="Натуральный мёд от среднерусских тёмных лесных пчёл. Экологически чистая продукция с пасеки в Псковской области.">
+        content="Натуральный мёд от среднерусских тёмных лесных пчёл. Экологически чистая продукция с пасеки в Псковской области. Закажите настоящий русский мёд с доставкой.">
+    <meta name="keywords"
+        content="мёд, пасека, псковский мёд, среднерусские пчёлы, натуральный мёд, лесной мёд, цветочный мёд, сотовый мёд">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Северная Пасека",
+      "description": "Натуральный мёд от среднерусских тёмных лесных пчёл в Псковской области",
+      "url": "https://северная-пасека.рф",
+      "logo": "https://северная-пасека.рф/logo.png",
+      "telephone": "+7-965-787-87-81",
+      "email": "info@beefarm.ru",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Псковская область",
+        "addressCountry": "Россия"
+      },
+      "sameAs": []
+    }
+    </script>
+
     <style>
         :root {
             --bg: #fefdf8;
@@ -548,6 +571,73 @@
             transform: translateY(-3px);
         }
 
+        /* Новые стили для улучшения UX */
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .stat-card {
+            background: var(--card);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--accent);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .stat-text {
+            color: var(--brown);
+            font-weight: 600;
+        }
+
+        .honey-types {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .honey-type {
+            background: var(--card);
+            padding: 15px 20px;
+            border-radius: 8px;
+            border: 1px solid #e8e1cb;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .honey-type:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        .honey-type.active {
+            background: var(--accent);
+            color: white;
+        }
+
+        .honey-details {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: #f9f7f0;
+            border-radius: 8px;
+        }
+
+        .honey-details.active {
+            display: block;
+        }
+
         @media (max-width: 768px) {
             .card {
                 padding: 28px 24px;
@@ -586,6 +676,10 @@
                 width: 45px;
                 height: 45px;
             }
+
+            .stats-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 480px) {
@@ -604,6 +698,10 @@
 
             .hero-overlay {
                 padding: 30px 15px;
+            }
+
+            .stats-section {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -627,7 +725,8 @@
 
     <section class="hero-section">
         <!-- Основное изображение -->
-        <img src="pskov.jpeg" alt="Пасека и северная тёмная пчела" class="hero-image" id="main-image" />
+        <img src="pskov.jpeg" alt="Пасека и северная тёмная пчела в Псковской области" class="hero-image"
+            id="main-image" />
 
         <div class="hero-overlay">
             <h1 class="hero-title">Натуральный мёд от северных пчёл</h1>
@@ -653,6 +752,26 @@
                 Именно они дают самый качественный мёд, который может родиться только в суровых и чистых северных
                 условиях.
             </p>
+
+            <!-- Статистика -->
+            <div class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-text">Лет опыта</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-text">Натуральный продукт</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-text">Довольных клиентов</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-text">Вида мёда</div>
+                </div>
+            </div>
 
             <button class="btn" onclick="showHoneyInfo()">Узнать, почему наш мёд особенный</button>
 
@@ -762,7 +881,7 @@
             <div class="product-grid">
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="wildflower-russian.png" alt="Цветочный мёд">
+                        <img src="wildflower-russian.png" alt="Цветочный мёд из Псковской области">
                     </div>
                     <div class="product-content">
                         <h4 class="product-title">Цветочный мёд</h4>
@@ -775,7 +894,7 @@
 
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="forest-honey.png" alt="Лесной мёд">
+                        <img src="forest-honey.png" alt="Лесной мёд из Псковских лесов">
                     </div>
                     <div class="product-content">
                         <h4 class="product-title">Лесной мёд</h4>
@@ -788,7 +907,7 @@
 
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="comb-honey.jpg" alt="Сотовый мёд">
+                        <img src="comb-honey.jpg" alt="Сотовый мёд от среднерусских пчёл">
                     </div>
                     <div class="product-content">
                         <h4 class="product-title">Сотовый мёд</h4>
